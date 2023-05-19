@@ -1,0 +1,8 @@
+
+#define WIDTH 1000
+#define HEIGHT 1000
+#define ROTATION_SPEED 100
+#define ACCELERATION 100
+#define MAX_SPEED 20
+#define BULLET_SPEED 3
+#define ASTEROID_SPEED 1
