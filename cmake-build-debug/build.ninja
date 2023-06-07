@@ -100,6 +100,20 @@ build CMakeFiles/final_project.dir/asteroid.cpp.o: CXX_COMPILER__final_project_D
   OBJECT_DIR = CMakeFiles/final_project.dir
   OBJECT_FILE_DIR = CMakeFiles/final_project.dir
 
+build CMakeFiles/final_project.dir/game.cpp.o: CXX_COMPILER__final_project_Debug /Users/jakubzywiecki/Desktop/Studia/C++/final-project/game.cpp || cmake_object_order_depends_target_final_project
+  DEP_FILE = CMakeFiles/final_project.dir/game.cpp.o.d
+  FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
+  INCLUDES = -I/usr/local/include -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/final_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/final_project.dir
+
+build CMakeFiles/final_project.dir/menu.cpp.o: CXX_COMPILER__final_project_Debug /Users/jakubzywiecki/Desktop/Studia/C++/final-project/menu.cpp || cmake_object_order_depends_target_final_project
+  DEP_FILE = CMakeFiles/final_project.dir/menu.cpp.o.d
+  FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
+  INCLUDES = -I/usr/local/include -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/final_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/final_project.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target final_project
@@ -108,7 +122,7 @@ build CMakeFiles/final_project.dir/asteroid.cpp.o: CXX_COMPILER__final_project_D
 #############################################
 # Link the executable final_project
 
-build final_project: CXX_EXECUTABLE_LINKER__final_project_Debug CMakeFiles/final_project.dir/main.cpp.o CMakeFiles/final_project.dir/spaceship.cpp.o CMakeFiles/final_project.dir/bullet.cpp.o CMakeFiles/final_project.dir/asteroid.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-network.2.5.1.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib
+build final_project: CXX_EXECUTABLE_LINKER__final_project_Debug CMakeFiles/final_project.dir/main.cpp.o CMakeFiles/final_project.dir/spaceship.cpp.o CMakeFiles/final_project.dir/bullet.cpp.o CMakeFiles/final_project.dir/asteroid.cpp.o CMakeFiles/final_project.dir/game.cpp.o CMakeFiles/final_project.dir/menu.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib /opt/homebrew/lib/libsfml-audio.2.5.1.dylib /opt/homebrew/lib/libsfml-network.2.5.1.dylib /opt/homebrew/lib/libsfml-window.2.5.1.dylib /opt/homebrew/lib/libsfml-system.2.5.1.dylib
   FLAGS = -std=c++11 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.5.1.dylib  /opt/homebrew/lib/libsfml-audio.2.5.1.dylib  /opt/homebrew/lib/libsfml-network.2.5.1.dylib  /opt/homebrew/lib/libsfml-window.2.5.1.dylib  /opt/homebrew/lib/libsfml-system.2.5.1.dylib
   OBJECT_DIR = CMakeFiles/final_project.dir

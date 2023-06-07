@@ -23,18 +23,16 @@ Asteroid::Asteroid() {
     int random_number2 = distribution2(rng);
 
     shape.setPointCount(4);
-    shape.setPoint(0, sf::Vector2f(20.0f, 0.0f));
-    shape.setPoint(1, sf::Vector2f(0.0f, 15.0f));
-    shape.setPoint(2, sf::Vector2f(-15.0f, 0.0f));
-    shape.setPoint(3, sf::Vector2f(0.0f, -15.0f));
+    shape.setPoint(0, sf::Vector2f(30.0f, 0.0f));
+    shape.setPoint(1, sf::Vector2f(0.0f, 20.0f));
+    shape.setPoint(2, sf::Vector2f(-20.0f, 0.0f));
+    shape.setPoint(3, sf::Vector2f(0.0f, -20.0f));
 
     shape.setFillColor(sf::Color(255, 255, 255, 1));
     shape.setOutlineColor(sf::Color::White);
     shape.setOutlineThickness(1);
-    shape.setPosition(0.0f, 0.0f);
-
-    setPosition(random_number1, random_number2);
-    setRotation(random_number1);
+    shape.setPosition(random_number1, random_number2);
+    shape.setRotation(random_number1);
 }
 
 void Asteroid::draw(RenderTarget &target, RenderStates states) const {
@@ -43,12 +41,12 @@ void Asteroid::draw(RenderTarget &target, RenderStates states) const {
 }
 
 void Asteroid::updatePosition(float dt) {
-    float rotation = getRotation();
+    float rotation = shape.getRotation();
     float x_speed = cos(rotation * 0.0174532925);
     float y_speed = sin(rotation * 0.0174532925);
-    this->move(x_speed*ASTEROID_SPEED, y_speed*ASTEROID_SPEED);
+    shape.move(x_speed*ASTEROID_SPEED*dt, y_speed*ASTEROID_SPEED*dt);
 
-    Vector2f position = getPosition();
+    Vector2f position = shape.getPosition();
     if (position.x < -10.0f)
         position.x = WIDTH;
     else if (position.x > WIDTH)
@@ -58,9 +56,17 @@ void Asteroid::updatePosition(float dt) {
         position.y = HEIGHT;
     else if (position.y > HEIGHT)
         position.y = 0.0f;
-    setPosition(position);
+    shape.setPosition(position);
 }
 
-bool Asteroid::exists() {
-    return true;
+bool Asteroid::isActive() {
+    return active;
+}
+
+ConvexShape Asteroid::getShape() {
+    return shape;
+}
+
+void Asteroid::setActive(bool active) {
+    this->active = active;
 }

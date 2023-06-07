@@ -17,16 +17,14 @@ Spaceship::Spaceship() {
     shape.setFillColor(sf::Color(255, 255, 255, 1));
     shape.setOutlineColor(sf::Color::White);
     shape.setOutlineThickness(2);
-    shape.setPosition(0.0f, 0.0f);
-
-    setPosition(WIDTH/2, HEIGHT/2);
-    setRotation(0.0f);
+    shape.setPosition(WIDTH/2, HEIGHT/2);
+    shape.setRotation(0.0f);
 }
 
 
 void Spaceship::updatePosition(float dt){
     if (h_move != 0){
-        rotate(h_move* dt * ROTATION_SPEED);
+        shape.rotate(h_move* dt * ROTATION_SPEED);
         if (dx > 0){
             dx -= 0.01;
         }
@@ -41,7 +39,7 @@ void Spaceship::updatePosition(float dt){
         }
     }
     if (v_move != 0){
-        float rotation = getRotation();
+        float rotation = shape.getRotation();
         float x_speed = cos(rotation * 0.0174532925);
         float y_speed = sin(rotation * 0.0174532925);
         dx = v_move * ACCELERATION * dt * x_speed;
@@ -53,7 +51,7 @@ void Spaceship::updatePosition(float dt){
             dy = dy > 0 ? MAX_SPEED : -MAX_SPEED;
         }
     }
-    this->move(dx, dy);
+    shape.move(SPACESHIP_SPEED* dx * dt, SPACESHIP_SPEED*dy * dt);
 
     if (v_move > 0.0){
         v_move -= 0.01;
@@ -70,7 +68,7 @@ void Spaceship::updatePosition(float dt){
     if (h_move > 1e-05){
         h_move = 0;
     }
-    Vector2f position = getPosition();
+    Vector2f position = shape.getPosition();
     if (position.x < -10.0f)
         position.x = WIDTH;
     else if (position.x > WIDTH)
@@ -80,7 +78,7 @@ void Spaceship::updatePosition(float dt){
         position.y = HEIGHT;
     else if (position.y > HEIGHT)
         position.y = 0.0f;
-    setPosition(position);
+    shape.setPosition(position);
 }
 
 
@@ -97,4 +95,28 @@ void Spaceship::moveShip(char move) {
 void Spaceship::draw(RenderTarget &target, RenderStates states) const {
     states.transform *= getTransform();
     target.draw(shape, states);
+
+    // Draw life bar
+    sf::RectangleShape lifeBar(sf::Vector2f(currentLifes * 30.0f, 10.0f));
+    lifeBar.setPosition(shape.getPosition().x - 50.0f, shape.getPosition().y + 40.0f);
+    lifeBar.setFillColor(sf::Color::Green);
+    if (currentLifes <= 2){
+        lifeBar.setFillColor(sf::Color::Yellow);
+    }
+    if (currentLifes <= 1){
+        lifeBar.setFillColor(sf::Color::Red);
+    }
+    target.draw(lifeBar, states);
+}
+
+ConvexShape Spaceship::getShape(){
+    return shape;
+}
+
+void Spaceship::setCurrentLifes(int lifes) {
+    currentLifes = lifes;
+}
+
+int Spaceship::getCurrentLifes() const {
+    return currentLifes;
 }

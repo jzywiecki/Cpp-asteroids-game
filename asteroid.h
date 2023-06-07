@@ -11,15 +11,18 @@ using namespace sf;
 
 class Asteroid : public Drawable, public Transformable{
 private:
-    ConvexShape shape;
     float dx=0, dy=0;
     float h_move = 0, v_move = 0;
+    bool active = true;
 public:
+    ConvexShape shape;
     Asteroid();
     ~Asteroid() = default;
     void draw(RenderTarget& target, RenderStates states) const override;
     void updatePosition(float dt);
-    bool exists();
+    bool isActive();
+    ConvexShape getShape();
+    void setActive(bool active);
 };
 
 

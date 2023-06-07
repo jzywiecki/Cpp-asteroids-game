@@ -14,13 +14,16 @@ private:
     ConvexShape shape;
     float dx=0, dy=0;
     float h_move = 0, v_move = 0;
+    int currentLifes = 3;
 public:
     Spaceship();
     ~Spaceship() = default;
     void moveShip(char move);
     void draw(RenderTarget& target, RenderStates states) const override;
     void updatePosition(float dt);
-
+    ConvexShape getShape();
+    int getCurrentLifes() const;
+    void setCurrentLifes(int currentLifes);
 };
 
 
