@@ -12,11 +12,12 @@
 
 class Game {
 public:
-    Game();
-    void run();
+    Game(sf::RenderWindow &window);
+
+    int run();
 
 private:
-    sf::RenderWindow window;
+    sf::RenderWindow &window;
     Spaceship spaceship;
     std::vector<Bullet> bullets;
     std::vector<Asteroid> asteroids;
@@ -26,10 +27,21 @@ private:
     int wait_asteroids;
     int lifes;
     sf::Clock clock;
+    int score;
+    bool gameOver;
+    int bestScore;
+    sf::RectangleShape tryAgainButton;
+    sf::RectangleShape quitButton;
 
     void handleEvents();
-    void update();
+
+    void handleButtonClick(const sf::Vector2f &mousePosition);
+
+    void restartGame();
+
+    int update();
+
     void render();
 };
 
-#endif  // GAME_H
+#endif // GAME_H

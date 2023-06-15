@@ -16,16 +16,18 @@ public:
     void handleEvents();
     void update();
     void render();
-
     bool isGameStarted() const;
-
 private:
+    std::vector<CircleShape> dots;
     sf::RenderWindow& window;
     bool gameStarted;
     sf::Font font;
     sf::Text titleText;
     sf::Text startText;
     sf::RectangleShape startButton;
+    sf::Text exitText;
+    sf::RectangleShape exitButton;
+
 };
 
 #endif //FINAL_PROJECT_MENU_H

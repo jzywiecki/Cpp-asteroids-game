@@ -17,9 +17,14 @@ int main() {
         menu.render();
     }
 
+
     // Start the game
-    Game game;
-    game.run();
+    Game game(window);
+    int score = game.run();
+    cout << score;
+
+
+
 
     return 0;
 }

@@ -5,8 +5,6 @@
 #include <cmath>
 #include "spaceship.h"
 #include "settings.h"
-#include <iostream>
-
 
 Spaceship::Spaceship() {
     shape.setPointCount(3);
@@ -23,22 +21,23 @@ Spaceship::Spaceship() {
 
 
 void Spaceship::updatePosition(float dt){
-    if (h_move != 0){
-        shape.rotate(h_move* dt * ROTATION_SPEED);
-        if (dx > 0){
+
+    if (h_move != 0){ //obracanie
+        shape.rotate(h_move * dt * ROTATION_SPEED);
+        if (dx > 1e-05){
             dx -= 0.01;
         }
-        if (dy > 0){
+        if (dy > 1e-05){
             dy -= 0.01;
         }
-        if (dy < 0){
+        if (dy < 1e-05){
             dy += 0.01;
         }
-        if (dx < 0){
+        if (dx < 1e-05){
             dx += 0.01;
         }
     }
-    if (v_move != 0){
+    if (v_move != 0){ //przyspieszanie
         float rotation = shape.getRotation();
         float x_speed = cos(rotation * 0.0174532925);
         float y_speed = sin(rotation * 0.0174532925);
@@ -51,23 +50,29 @@ void Spaceship::updatePosition(float dt){
             dy = dy > 0 ? MAX_SPEED : -MAX_SPEED;
         }
     }
+
+    //przesuwanie
     shape.move(SPACESHIP_SPEED* dx * dt, SPACESHIP_SPEED*dy * dt);
 
-    if (v_move > 0.0){
+    //spowalnianie
+    if (v_move > 1e-05){
         v_move -= 0.01;
     }
-    if (h_move > 0){
-        h_move -= 0.1;
-    }
-    if (h_move < 0){
-        h_move += 0.1;
+    if (h_move > 1e-05){
+        h_move -= 0.03;
     }
     if (h_move < 1e-05){
+        h_move += 0.03;
+    }
+    if (h_move < 1e-05 && h_move > -1e-05){
         h_move = 0;
     }
-    if (h_move > 1e-05){
+    if (h_move > 1e-05 && h_move < -1e-05){
         h_move = 0;
     }
+
+
+    //zawijanie na mapie
     Vector2f position = shape.getPosition();
     if (position.x < -10.0f)
         position.x = WIDTH;

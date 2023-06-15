@@ -14,6 +14,7 @@ private:
     float dx=0, dy=0;
     float h_move = 0, v_move = 0;
     bool active = true;
+    float speed;
 public:
     ConvexShape shape;
     Asteroid();
