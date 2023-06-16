@@ -1,6 +1,6 @@
 #define WIDTH 1000
 #define HEIGHT 1000
-#define ROTATION_SPEED 80
+#define ROTATION_SPEED 110
 #define ACCELERATION 100
 #define MAX_SPEED 20
 #define BULLET_SPEED 700
