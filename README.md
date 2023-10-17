@@ -1,39 +1,53 @@
-# final-project
+# Asteroids
 
-## Opis
+## Description
 
-Asteroids to klasyczna gra arkadowa, w której wcielamy się w rolę kosmicznego pilota poruszającego się przez przestrzeń pełną asteroid. Naszym zadaniem jest zniszczenie jak największej liczby kamieni, unikając kolizji i utrzymując się przy życiu jak najdłużej.
+Asteroids is a classic arcade game in which you take on the role of a space pilot navigating through space filled with asteroids. Your task is to destroy as many rocks as possible while avoiding collisions and staying alive for as long as you can.
 
-## Sterowanie
 
-Strzałka w górę: Poruszanie się do przodu.
-Strzałka w lewo: Skręcanie w lewo.
-Strzałka w prawo: Skręcanie w prawo.
-Spacja: Strzelanie do asteroid.
+## Controls
+Up Arrow: Move forward.
+Left Arrow: Turn left.
+Right Arrow: Turn right.
+Spacebar: Shoot at asteroids.
 
-## Instrukcje
+## Instructions
 
-Poruszanie się:
+Movement:
 
-Aby poruszać się do przodu, użyj strzałki w górę na klawiaturze.
-Aby skręcić w lewo, użyj strzałki w lewo.
-Aby skręcić w prawo, użyj strzałki w prawo.
+To move forward, use the up arrow key on your keyboard.
+To turn left, use the left arrow key.
+To turn right, use the right arrow key.
 
-Strzelanie:
-Aby strzelać, użyj spacji na klawiaturze.
-Każde trafienie w asteroidę przynosi punkty.
+Shooting:
+To shoot, use the spacebar on your keyboard.
+Each hit on an asteroid earns you points.
 
-Unikanie kolizji:
-Unikaj kontaktu z asteroidami, ponieważ kolizja spowoduje utratę życia.
+Avoiding Collisions:
+Avoid contact with asteroids, as a collision will result in the loss of a life.
 
-Punkty:
-Zdobywasz punkty za każdą zniszczoną asteroidę.
-Spróbuj zdobyć jak najwięcej punktów i pobić rekord!
+Points:
+You earn points for each destroyed asteroid.
+Try to score as many points as possible and beat your high score!
 
-Życia:
-Na początku gry masz 3 życia.
-Za każdą kolizję z asteroidą tracisz jedno życie.
+Lives:
+At the beginning of the game, you have 3 lives.
+You lose one life for each collision with an asteroid.
 
-Koniec gry:
-Gra kończy się, gdy stracisz wszystkie życia.
-Spróbuj pobić swój rekord przy kolejnej próbie!
+Game Over:
+The game ends when you run out of lives.
+Try to beat your record on your next attempt!
+
+## Screenshots
+
+![Zrzut ekranu 2023-10-12 o 17 20 32](https://github.com/jzywiecki/Cpp-asteroids-game/assets/105950890/b1abaf98-4daa-4b21-a6a9-65ead13fc20a)
+
+
+![Zrzut ekranu 2023-10-12 o 17 20 59](https://github.com/jzywiecki/Cpp-asteroids-game/assets/105950890/37fe9ace-031a-46b2-a6ab-9881e30f2f87)
+
+![Zrzut ekranu 2023-10-12 o 17 21 04](https://github.com/jzywiecki/Cpp-asteroids-game/assets/105950890/08798628-5a2d-4527-967a-0995241762db)
+
+![Zrzut ekranu 2023-10-12 o 17 21 10](https://github.com/jzywiecki/Cpp-asteroids-game/assets/105950890/5ab08111-84ea-4a60-9076-e7b288c78cc5)
+
+
+
